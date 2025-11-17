@@ -1,0 +1,7 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+    <ActionBar title="HelloWorld" class="action-bar" />
+    <StackLayout>
+        <Label text="Merhaba NativeScript!" class="h1" />
+        <Button text="Tıkla!" tap="onButtonTap" />
+    </StackLayout>
+</Page>
