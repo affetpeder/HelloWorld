@@ -1,0 +1,34 @@
+name: Build Android APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install NativeScript
+        run: npm install -g nativescript
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build debug APK
+        run: ns build android
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: HelloWorld-APK
+          path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
